@@ -1,0 +1,69 @@
+Sistema Registro de Productos
+
+Tecnologías utilizadas
+- PHP 8.x
+- PostgreSQL 14+
+- HTML
+- CSS
+- JavaScript (AJAX)
+
+-------------------------------------
+
+Requisitos
+- PHP 8.x
+- PostgreSQL 14+
+- XAMPP o cualquier servidor Apache
+
+-------------------------------------
+
+Instalación
+
+1. Crear una base de datos en PostgreSQL:
+
+   CREATE DATABASE registro_productos;
+
+2. Ejecutar el script ubicado en:
+
+   /sql/database.sql
+
+   Este script creará las tablas:
+   - bodegas
+   - sucursales
+   - monedas
+   - materiales
+   - productos
+   - producto_material
+
+3. Configurar la conexión a la base de datos
+
+   Editar el archivo:
+
+   conexion.php
+
+   Ajustar los siguientes valores según su instalación de PostgreSQL:
+
+   $host = "localhost";
+   $port = "5432";
+   $dbname = "registro_productos";
+   $user = "postgres";
+   $password = "su_password";
+
+4. Colocar la carpeta del proyecto en:
+
+   xampp/htdocs/
+
+5. Abrir el navegador y acceder a:
+
+   http://localhost/registro-productos
+
+-------------------------------------
+
+Versiones utilizadas
+
+PHP: 8.x
+PostgreSQL: 14+
+
+-------------------------------------
+
+Autor
+Diego Hidalgo Carvajal
