@@ -1,6 +1,7 @@
 <?php
 require_once "conexion.php";
 
+// Validar que la petición sea POST
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     echo "Método no permitido.";
     exit;
@@ -63,7 +64,7 @@ try {
         echo "El código del producto ya está registrado.";
         exit;
     }
-
+    // Iniciar transacción para asegurar consistencia
     $conexion->beginTransaction();
 
     $sqlProducto = "INSERT INTO productos
@@ -87,7 +88,8 @@ try {
     $sqlMaterial = "INSERT INTO producto_material (producto_id, material_id)
                     VALUES (:producto_id, :material_id)";
     $stmtMaterial = $conexion->prepare($sqlMaterial);
-
+    
+    // Insertar materiales asociados al producto
     foreach ($materiales as $materialId) {
         $stmtMaterial->bindParam(":producto_id", $productoId, PDO::PARAM_INT);
         $stmtMaterial->bindParam(":material_id", $materialId, PDO::PARAM_INT);

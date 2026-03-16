@@ -1,3 +1,5 @@
+// Cargar datos iniciales al cargar la página
+
 document.addEventListener("DOMContentLoaded", function () {
     cargarDatosIniciales();
 
@@ -6,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+// Función que obtiene bodegas, monedas y materiales desde el backend
 function cargarDatosIniciales() {
     fetch("obtener_datos.php")
         .then(response => response.json())
@@ -63,6 +66,7 @@ function cargarSucursales(bodegaId) {
         });
 }
 
+// Validaciones antes de enviar el formulario
 function guardarProducto() {
     const codigo = document.getElementById("codigo").value.trim();
     const nombre = document.getElementById("nombre").value.trim();
